@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F6EFE2" />
+<title>Copycat Houston's Spinach Artichoke Dip — Cooking Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6EFE2;
+  --warm-white:#FFFCF6;
+  --beige:#EBE0CC;
+  --sage:#8C9B7C;
+  --sage-deep:#6E7F5F;
+  --terracotta:#C97A56;
+  --terracotta-deep:#B4643F;
+  --charcoal:#2C2620;
+  --charcoal-soft:#6B6255;
+  --line:rgba(44,38,32,0.10);
+  --shadow: 0 1px 2px rgba(44,38,32,0.04), 0 12px 28px -12px rgba(44,38,32,0.16);
+  --shadow-lg: 0 20px 50px -20px rgba(44,38,32,0.28);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:'Manrope',sans-serif;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(201,122,86,0.10), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(140,155,124,0.14), transparent 55%),
+    var(--cream);
+  color:var(--charcoal);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:'Fraunces',serif;letter-spacing:-0.01em;}
+button{font-family:inherit;cursor:pointer;}
+.app{max-width:1180px;margin:0 auto;padding:0 20px 120px;}
+::selection{background:var(--terracotta);color:#fff;}
+
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(14px) saturate(160%);
+  background:rgba(246,239,226,0.72);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.brand{display:flex;align-items:baseline;gap:8px;}
+.brand-mark{width:10px;height:10px;border-radius:50%;background:var(--terracotta);flex:none;}
+.brand-text{font-family:'Fraunces',serif;font-weight:600;font-size:15px;letter-spacing:0.01em;color:var(--charcoal);}
+.brand-sub{font-size:11px;color:var(--charcoal-soft);letter-spacing:0.04em;text-transform:uppercase;}
+nav.tabs{display:flex;gap:4px;background:rgba(255,255,255,0.55);border:1px solid var(--line);padding:4px;border-radius:999px;}
+nav.tabs button{
+  border:none;background:transparent;padding:9px 16px;border-radius:999px;
+  font-size:13px;font-weight:700;color:var(--charcoal-soft);letter-spacing:0.02em;
+  transition:all .18s ease;white-space:nowrap;
+}
+nav.tabs button.active{background:var(--charcoal);color:var(--warm-white);}
+nav.tabs button:not(.active):hover{color:var(--charcoal);}
+
+/* ---------- Sections ---------- */
+.view{display:none;animation:fadeIn .25s ease;}
+.view.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+/* ---------- Hero / Home ---------- */
+.hero{
+  margin-top:28px;border-radius:var(--radius-lg);
+  background:
+    radial-gradient(ellipse 500px 300px at 85% -20%, rgba(201,122,86,0.22), transparent 60%),
+    linear-gradient(180deg, var(--warm-white), var(--beige));
+  border:1px solid var(--line);
+  padding:44px 36px;position:relative;overflow:hidden;box-shadow:var(--shadow);
+}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--terracotta-deep);}
+.hero h1{font-size:clamp(32px,5vw,52px);line-height:1.04;margin:10px 0 6px;font-weight:600;}
+.hero p.tag{color:var(--charcoal-soft);font-size:16px;max-width:520px;margin:0 0 24px;}
+.stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;}
+.stat-pill{
+  background:rgba(255,255,255,0.7);border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px;font-size:13px;font-weight:700;color:var(--charcoal);display:flex;gap:6px;align-items:center;
+}
+.stat-pill .lbl{color:var(--charcoal-soft);font-weight:600;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  border-radius:999px;padding:15px 26px;font-weight:800;font-size:14.5px;letter-spacing:0.01em;
+  border:1px solid transparent;transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:active{transform:scale(0.97);}
+.btn-primary{background:var(--terracotta);color:#fff;box-shadow:0 10px 24px -8px rgba(201,122,86,0.55);}
+.btn-primary:hover{background:var(--terracotta-deep);}
+.btn-ghost{background:rgba(255,255,255,0.6);color:var(--charcoal);border-color:var(--line);}
+.btn-ghost:hover{background:#fff;}
+.btn-dark{background:var(--charcoal);color:var(--warm-white);}
+.btn-dark:hover{background:#231e19;}
+.btn-sm{padding:9px 16px;font-size:13px;}
+.btn-block{width:100%;text-align:center;}
+.btn[disabled]{opacity:0.4;pointer-events:none;}
+
+.section-title{display:flex;align-items:baseline;justify-content:space-between;margin:44px 0 16px;}
+.section-title h2{font-size:22px;font-weight:600;margin:0;}
+.section-title .hint{font-size:13px;color:var(--charcoal-soft);}
+
+.card{
+  background:var(--warm-white);border:1px solid var(--line);border-radius:var(--radius-md);
+  padding:22px;box-shadow:var(--shadow);
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media (max-width:760px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.progress-banner{
+  margin-top:22px;border-radius:var(--radius-md);background:rgba(140,155,124,0.16);
+  border:1px solid rgba(140,155,124,0.35);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.progress-banner .l{font-weight:700;font-size:14px;}
+.progress-bar{height:8px;border-radius:99px;background:rgba(44,38,32,0.08);overflow:hidden;flex:1;min-width:120px;}
+.progress-bar span{display:block;height:100%;background:var(--sage-deep);border-radius:99px;transition:width .3s ease;}
+
+/* ---------- Controls row (scale / units) ---------- */
+.controls-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:6px 0 4px;}
+.seg{display:flex;background:rgba(44,38,32,0.06);border-radius:999px;padding:4px;gap:2px;}
+.seg button{border:none;background:transparent;padding:8px 14px;border-radius:999px;font-size:12.5px;font-weight:700;color:var(--charcoal-soft);}
+.seg button.active{background:var(--charcoal);color:var(--warm-white);}
+.control-label{font-size:11.5px;font-weight:700;color:var(--charcoal-soft);letter-spacing:0.06em;text-transform:uppercase;margin-right:2px;}
+
+/* ---------- Ingredients ---------- */
+.ing-group{margin-bottom:26px;}
+.ing-group-title{font-size:12px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:10px;}
+.ing-list{display:flex;flex-direction:column;gap:8px;}
+.ing-row{
+  display:flex;align-items:center;gap:14px;background:var(--warm-white);border:1px solid var(--line);
+  border-radius:var(--radius-sm);padding:14px 16px;transition:background .15s ease;
+}
+.ing-row.checked{background:rgba(140,155,124,0.10);}
+.ing-check{
+  width:24px;height:24px;border-radius:8px;border:2px solid var(--charcoal-soft);flex:none;
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;background:#fff;
+}
+.ing-row.checked .ing-check{background:var(--sage-deep);border-color:var(--sage-deep);}
+.ing-check svg{opacity:0;width:14px;height:14px;}
+.ing-row.checked .ing-check svg{opacity:1;}
+.ing-qty{font-family:'Fraunces',serif;font-weight:600;font-size:17px;min-width:88px;color:var(--terracotta-deep);}
+.ing-name{font-weight:700;font-size:14.5px;}
+.ing-note{font-size:12.5px;color:var(--charcoal-soft);margin-top:1px;}
+.ing-row.checked .ing-name,.ing-row.checked .ing-note{text-decoration:line-through;text-decoration-color:rgba(44,38,32,0.35);opacity:0.65;}
+
+.equip-list{display:flex;flex-wrap:wrap;gap:8px;}
+.equip-chip{background:rgba(255,255,255,0.7);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:13px;font-weight:600;}
+
+.substitution{
+  margin-top:18px;border:1px dashed rgba(140,155,124,0.55);border-radius:var(--radius-md);
+  background:rgba(140,155,124,0.08);padding:16px 18px;
+}
+.substitution summary{cursor:pointer;font-weight:800;font-size:13.5px;color:var(--sage-deep);list-style:none;display:flex;align-items:center;gap:8px;}
+.substitution summary::-webkit-details-marker{display:none;}
+.substitution[open] summary{margin-bottom:10px;}
+.substitution .tagline{font-size:11px;font-weight:700;color:var(--charcoal-soft);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-top:6px;}
+.substitution ol{margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--charcoal);}
+
+/* ---------- Prep ---------- */
+.prep-group{background:var(--warm-white);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px 20px;margin-bottom:14px;box-shadow:var(--shadow);}
+.prep-group.highlight{border-color:rgba(201,122,86,0.5);background:linear-gradient(180deg, rgba(201,122,86,0.06), var(--warm-white) 40%);}
+.prep-group-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.prep-group-head h3{margin:0;font-size:15px;letter-spacing:0.03em;text-transform:uppercase;font-weight:800;}
+.prep-flag{font-size:10.5px;font-weight:800;background:var(--terracotta);color:#fff;padding:3px 9px;border-radius:999px;letter-spacing:0.04em;text-transform:uppercase;}
+.prep-task{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line);}
+.prep-task:first-of-type{border-top:none;padding-top:0;}
+.prep-task .ing-check{margin-top:2px;}
+.prep-task-main{flex:1;}
+.prep-task-title{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+.prep-task-qty{font-family:'Fraunces',serif;font-weight:600;color:var(--terracotta-deep);font-size:15px;}
+.prep-task-name{font-weight:700;font-size:14px;}
+.prep-task ul{margin:5px 0 0;padding-left:18px;font-size:13px;color:var(--charcoal-soft);line-height:1.55;}
+.prep-task.done .prep-task-name,.prep-task.done ul{opacity:0.55;text-decoration:line-through;text-decoration-color:rgba(44,38,32,0.3);}
+
+.ready-bar{position:sticky;bottom:16px;margin-top:24px;display:flex;justify-content:center;}
+.ready-bar-inner{
+  background:rgba(44,38,32,0.94);backdrop-filter:blur(10px);color:#fff;border-radius:999px;
+  padding:12px 12px 12px 22px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow-lg);
+}
+.ready-bar-inner span{font-size:13px;font-weight:700;}
+
+/* ---------- Cook mode ---------- */
+.cook-shell{margin-top:22px;}
+.cook-topline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
+.phase-chip{font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;background:rgba(201,122,86,0.14);color:var(--terracotta-deep);padding:6px 12px;border-radius:999px;}
+.step-count{font-size:12.5px;font-weight:700;color:var(--charcoal-soft);}
+.dots{display:flex;gap:5px;}
+.dots span{width:6px;height:6px;border-radius:50%;background:rgba(44,38,32,0.14);}
+.dots span.done{background:var(--sage-deep);}
+.dots span.current{background:var(--terracotta);width:16px;border-radius:4px;}
+
+.cook-card{
+  background:linear-gradient(180deg, var(--warm-white), var(--beige) 130%);
+  border:1px solid var(--line);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--shadow-lg);
+  display:grid;grid-template-columns:1.15fr 1fr;gap:30px;
+}
+@media (max-width:900px){.cook-card{grid-template-columns:1fr;padding:22px;}}
+
+.cook-main h2{font-size:clamp(24px,3.4vw,34px);margin:6px 0 14px;font-weight:600;line-height:1.08;}
+.heat-badge{
+  display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:0.04em;
+  padding:8px 14px;border-radius:999px;text-transform:uppercase;
+}
+.heat-medium{background:rgba(201,122,86,0.16);color:var(--terracotta-deep);}
+.heat-medium-low{background:rgba(201,122,86,0.10);color:var(--terracotta-deep);}
+.heat-off{background:rgba(44,38,32,0.08);color:var(--charcoal-soft);}
+.heat-bake{background:rgba(140,155,124,0.2);color:var(--sage-deep);}
+.instruction{font-size:16px;line-height:1.6;color:var(--charcoal);margin:18px 0;}
+.callout{border-radius:var(--radius-sm);padding:14px 16px;margin-top:12px;font-size:13.5px;line-height:1.55;}
+.callout .lbl{display:block;font-weight:800;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:5px;}
+.callout.look{background:rgba(140,155,124,0.14);color:#3E4A34;}
+.callout.look .lbl{color:var(--sage-deep);}
+.callout.warn{background:rgba(201,122,86,0.14);color:#6E3B22;}
+.callout.warn .lbl{color:var(--terracotta-deep);}
+
+.addnow{background:rgba(255,255,255,0.65);border:1px solid var(--line);border-radius:var(--radius-md);padding:18px;}
+.addnow-title{font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal-soft);margin-bottom:12px;}
+.addnow-item{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-top:1px solid var(--line);}
+.addnow-item:first-of-type{border-top:none;padding-top:0;}
+.addnow-qty{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--terracotta-deep);min-width:70px;}
+.addnow-name{font-weight:700;font-size:14px;}
+.addnow-note{font-size:12px;color:var(--charcoal-soft);}
+
+.timer-box{margin-top:16px;background:var(--charcoal);color:var(--warm-white);border-radius:var(--radius-md);padding:20px;text-align:center;}
+.timer-box .tlabel{font-size:11px;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;opacity:0.7;}
+.timer-box .tclock{font-family:'Fraunces',serif;font-size:44px;font-weight:600;margin:6px 0 12px;letter-spacing:0.02em;}
+.timer-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.timer-btns button{border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);color:#fff;border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:700;}
+.timer-btns button.primary{background:var(--terracotta);border-color:var(--terracotta);}
+.timer-btns button:hover{background:rgba(255,255,255,0.18);}
+.timer-warn{margin-top:10px;font-size:12px;color:#F0B99A;font-weight:700;}
+.check-prompt{margin-top:12px;background:rgba(201,122,86,0.18);border-radius:12px;padding:12px;font-size:13px;font-weight:700;color:var(--terracotta-deep);}
+
+.cook-nav{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:10px;}
+.help-fab{
+  position:fixed;right:22px;bottom:22px;z-index:50;background:var(--charcoal);color:#fff;border:none;
+  border-radius:999px;padding:14px 20px;font-weight:800;font-size:13.5px;box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(44,38,32,0.42);backdrop-filter:blur(2px);z-index:80;display:none;align-items:flex-end;justify-content:center;}
+.overlay.open{display:flex;}
+@media (min-width:760px){.overlay{align-items:center;}}
+.modal{
+  background:var(--warm-white);width:100%;max-width:560px;max-height:86vh;overflow-y:auto;
+  border-radius:26px 26px 0 0;padding:26px 24px 30px;box-shadow:var(--shadow-lg);
+}
+@media (min-width:760px){.modal{border-radius:26px;}}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.modal-head h3{margin:0;font-size:19px;}
+.modal-close{border:none;background:rgba(44,38,32,0.08);border-radius:50%;width:32px;height:32px;font-size:16px;color:var(--charcoal);}
+.issue{border:1px solid var(--line);border-radius:14px;padding:13px 15px;margin-bottom:9px;background:#fff;}
+.issue.contextual{border-color:rgba(201,122,86,0.5);background:rgba(201,122,86,0.06);}
+.issue-q{font-weight:800;font-size:13.5px;margin-bottom:5px;}
+.issue-a{font-size:13px;color:var(--charcoal-soft);line-height:1.5;}
+
+/* ---------- Ask ---------- */
+.ask-shell{margin-top:18px;background:var(--warm-white);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;}
+.ask-context{padding:16px 22px;background:rgba(140,155,124,0.10);border-bottom:1px solid var(--line);font-size:12.5px;color:var(--sage-deep);font-weight:700;}
+.ask-log{padding:22px;display:flex;flex-direction:column;gap:14px;min-height:220px;max-height:48vh;overflow-y:auto;}
+.msg{max-width:78%;padding:12px 16px;border-radius:18px;font-size:14px;line-height:1.5;}
+.msg.user{align-self:flex-end;background:var(--charcoal);color:#fff;border-bottom-right-radius:4px;}
+.msg.bot{align-self:flex-start;background:var(--beige);color:var(--charcoal);border-bottom-left-radius:4px;}
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 22px 16px;}
+.chip{background:rgba(201,122,86,0.12);color:var(--terracotta-deep);border:1px solid rgba(201,122,86,0.3);border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:700;}
+.ask-input-row{display:flex;gap:10px;padding:16px 22px;border-top:1px solid var(--line);background:rgba(255,255,255,0.5);}
+.ask-input-row input{flex:1;border:1px solid var(--line);border-radius:999px;padding:12px 18px;font-size:14px;font-family:inherit;background:#fff;}
+.ask-input-row input:focus{outline:2px solid var(--terracotta);outline-offset:1px;}
+.ask-send{border:none;background:var(--terracotta);color:#fff;border-radius:999px;padding:0 22px;font-weight:800;font-size:13.5px;}
+
+/* ---------- Finish ---------- */
+.finish-hero{text-align:center;padding:52px 20px;}
+.finish-hero h1{font-size:clamp(30px,5vw,46px);margin:14px 0 8px;}
+.finish-hero p{color:var(--charcoal-soft);font-size:15px;max-width:440px;margin:0 auto;}
+.finish-icon{font-size:44px;}
+textarea.notes{width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px 16px;font-family:inherit;font-size:14px;min-height:110px;resize:vertical;background:#fff;}
+.notes-tags{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+.notes-tag{background:rgba(140,155,124,0.14);color:var(--sage-deep);border:1px solid rgba(140,155,124,0.4);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;}
+
+footer.reset-row{margin:60px 0 10px;display:flex;justify-content:center;}
+.link-danger{background:none;border:none;color:var(--charcoal-soft);font-size:12.5px;text-decoration:underline;text-underline-offset:3px;}
+.link-danger:hover{color:var(--terracotta-deep);}
+
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <div class="brand-text">Houston's Spinach Artichoke</div>
+      </div>
+    </div>
+    <nav class="tabs" id="mainTabs">
+      <button data-view="home">Recipe</button>
+      <button data-view="prep">Prep</button>
+      <button data-view="cook">Cook</button>
+      <button data-view="ask">Ask</button>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+
+  <!-- ============ HOME ============ -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div class="eyebrow">Copycat Recipe · Serves a Crowd</div>
+      <h1>Spinach Artichoke Dip</h1>
+      <p class="tag">A rich, cheesy stovetop-to-oven dip built the way Houston's makes it — guided step by step so you never have to guess a measurement or a temperature.</p>
+      <div class="stat-row">
+        <div class="stat-pill"><span class="lbl">Oven</span> 350°F</div>
+        <div class="stat-pill"><span class="lbl">Prep</span> ~20 min (est.)</div>
+        <div class="stat-pill"><span class="lbl">Cook</span> ~35–40 min (est.)</div>
+        <div class="stat-pill"><span class="lbl">Steps</span> 14 checkpoints</div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="startCookingBtn">Start Cooking →</button>
+        <button class="btn btn-ghost" data-goto="prep">Prep First</button>
+        <button class="btn btn-ghost" data-goto="ingredients-section">View Ingredients</button>
+      </div>
+    </div>
+
+    <div class="progress-banner" id="progressBanner" style="display:none;">
+      <div class="l" id="progressLabel">Session in progress</div>
+      <div class="progress-bar"><span id="progressFill" style="width:0%"></span></div>
+      <button class="btn btn-dark btn-sm" id="resumeBtn">Resume Cooking</button>
+    </div>
+
+    <div class="section-title" id="ingredients-section">
+      <h2>Ingredients</h2>
+      <div class="hint">Tap to check off as you gather</div>
+    </div>
+    <div class="controls-row">
+      <span class="control-label">Scale</span>
+      <div class="seg" id="scaleSeg">
+        <button data-scale="0.5">0.5×</button>
+        <button data-scale="1" class="active">1×</button>
+        <button data-scale="1.5">1.5×</button>
+        <button data-scale="2">2×</button>
+      </div>
+      <span class="control-label">Units</span>
+      <div class="seg" id="unitSeg">
+        <button data-unit="us" class="active">US</button>
+        <button data-unit="metric">Metric</button>
+      </div>
+    </div>
+    <div id="ingredientGroups" style="margin-top:18px;"></div>
+
+    <details class="substitution">
+      <summary>🌿 Using fresh spinach instead?</summary>
+      <span class="tagline">Substitution guide — not part of the original recipe</span>
+      <ol>
+        <li>Use about 1.5–1.75 lb fresh spinach to replace the 20 oz frozen called for — fresh cooks down a lot.</li>
+        <li>Wilt it in batches in a hot pan or by pouring boiling water over it, just until fully collapsed.</li>
+        <li>Let it cool enough to handle comfortably.</li>
+        <li>Squeeze it in a clean towel or cheesecloth — press hard, this is the step people skip.</li>
+        <li>It's dry enough when almost no liquid drips out and the ball feels dense, not spongy.</li>
+        <li>Chop it the same way you would the thawed frozen spinach, then use it in the same steps.</li>
+      </ol>
+    </details>
+
+    <div class="section-title">
+      <h2>What You'll Need</h2>
+      <div class="hint">Equipment</div>
+    </div>
+    <div class="equip-list" id="equipList"></div>
+  </section>
+
+  <!-- ============ PREP ============ -->
+  <section class="view" id="view-prep">
+    <div class="section-title" style="margin-top:26px;">
+      <h2>Mise en Place</h2>
+      <div class="hint">Get everything ready before the heat goes on</div>
+    </div>
+    <div class="controls-row">
+      <span class="control-label">Scale</span>
+      <div class="seg" id="scaleSegPrep">
+        <button data-scale="0.5">0.5×</button>
+        <button data-scale="1" class="active">1×</button>
+        <button data-scale="1.5">1.5×</button>
+        <button data-scale="2">2×</button>
+      </div>
+      <span class="control-label">Units</span>
+      <div class="seg" id="unitSegPrep">
+        <button data-unit="us" class="active">US</button>
+        <button data-unit="metric">Metric</button>
+      </div>
+    </div>
+    <div id="prepGroups" style="margin-top:18px;"></div>
+
+    <div class="ready-bar">
+      <div class="ready-bar-inner">
+        <span id="prepStatusText">0 of 0 ready</span>
+        <button class="btn btn-primary btn-sm" id="readyToCookBtn">Ready to Cook →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COOK ============ -->
+  <section class="view" id="view-cook">
+    <div class="cook-shell" id="cookShell"></div>
+  </section>
+
+  <!-- ============ ASK ============ -->
+  <section class="view" id="view-ask">
+    <div class="section-title" style="margin-top:26px;"><h2>Ask the Chef</h2><div class="hint">Knows this recipe, your scale, and where you are in it</div></div>
+    <div class="ask-shell">
+      <div class="ask-context" id="askContext">Not cooking yet — ask anything about the recipe.</div>
+      <div class="ask-log" id="askLog"></div>
+      <div class="chips" id="askChips"></div>
+      <div class="ask-input-row">
+        <input type="text" id="askInput" placeholder="Ask a question about this recipe…" />
+        <button class="ask-send" id="askSend">Ask</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINISH ============ -->
+  <section class="view" id="view-finish">
+    <div class="finish-hero">
+      <div class="finish-icon">🧀</div>
+      <h1>Dip's Ready</h1>
+      <p>Let it sit for a couple of minutes before serving — it's molten. Serve warm, straight from the baking dish.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-top:0;font-size:16px;">Serving Suggestion</h3>
+        <p style="font-size:13.5px;color:var(--charcoal-soft);line-height:1.6;">Warm tortilla chips are the classic pairing for a dip like this — not part of the original recipe, just a serving idea. Toasted baguette or crackers work too.</p>
+        <h3 style="font-size:16px;">Storage &amp; Reheating</h3>
+        <p style="font-size:13.5px;color:var(--charcoal-soft);line-height:1.6;">Cool, then refrigerate airtight up to 3–4 days. Reheat covered in a 325°F oven until warmed through, or in short microwave bursts, stirring between each. Add a splash of cream if it's tightened up.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0;font-size:16px;">Cooking Notes</h3>
+        <p style="font-size:12.5px;color:var(--charcoal-soft);margin-top:-8px;">What would you change next time?</p>
+        <textarea class="notes" id="notesArea" placeholder="e.g. More garlic next time. 15 minutes was enough. Fresh spinach worked."></textarea>
+        <div class="notes-tags">
+          <button class="notes-tag" data-note="More garlic next time.">More garlic</button>
+          <button class="notes-tag" data-note="Use less cayenne.">Less cayenne</button>
+          <button class="notes-tag" data-note="15 minutes of baking was enough.">15 min was enough</button>
+          <button class="notes-tag" data-note="Needed extra cheddar on top.">Needed extra cheddar</button>
+          <button class="notes-tag" data-note="Fresh spinach worked well.">Fresh spinach worked</button>
+        </div>
+        <button class="btn btn-dark btn-block" id="saveNotesBtn">Save Notes</button>
+        <div id="notesSavedMsg" style="font-size:12px;color:var(--sage-deep);font-weight:700;margin-top:8px;display:none;">Saved.</div>
+      </div>
+    </div>
+    <footer class="reset-row"><button class="link-danger" id="resetSessionBtn">Reset cooking session</button></footer>
+  </section>
+
+</div>
+
+<button class="help-fab" id="helpFab" style="display:none;">⚑ Help</button>
+
+<div class="overlay" id="helpOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Something's wrong?</h3><button class="modal-close" id="helpClose">✕</button></div>
+    <div id="helpContent"></div>
+  </div>
+</div>
+
+<div class="overlay" id="confirmOverlay">
+  <div class="modal">
+    <div class="modal-head"><h3>Reset cooking session?</h3><button class="modal-close" id="confirmClose">✕</button></div>
+    <p style="font-size:13.5px;color:var(--charcoal-soft);line-height:1.5;">This clears your ingredient checklist, prep progress, cook step, timers and scale/unit choice. Your saved cooking notes are kept. This can't be undone.</p>
+    <div style="display:flex;gap:10px;margin-top:16px;">
+      <button class="btn btn-ghost" id="confirmCancel" style="flex:1;">Cancel</button>
+      <button class="btn btn-primary" id="confirmYes" style="flex:1;background:var(--terracotta-deep);">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   RECIPE DATA — single source of truth. All UI derives quantities from this.
+   Base amounts are for 1× scale. "us" and "metric" objects hold the base
+   values for each unit system; count-based items (cloves, "small", squeeze,
+   as-needed) share the same value across both unit systems.
+   ========================================================================= */
+const RECIPE = {
+  title: "Copycat Houston's Spinach Artichoke Dip",
+  ovenF: 350,
+  prepEstimateMin: 20,
+  cookEstimateLabel: "35–40 min",
+
+  ingredients: [
+    { id:'spinach', category:'PRODUCE', name:'Frozen Spinach', prepNote:'Thawed • squeezed very dry • chopped',
+      us:{amount:20, unit:'oz'}, metric:{amount:570, unit:'g'} },
+    { id:'artichokes', category:'PRODUCE', name:'Artichoke Hearts', prepNote:'Drained • chopped',
+      us:{amount:14, unit:'oz'}, metric:{amount:400, unit:'g'} },
+    { id:'onion', category:'PRODUCE', name:'Yellow Onion', prepNote:'Finely chopped',
+      us:{amount:0.25, unit:'small'}, metric:{amount:0.25, unit:'small'} },
+    { id:'garlic', category:'PRODUCE', name:'Garlic', prepNote:'Chopped or grated',
+      us:{amount:3, unit:'clove'}, metric:{amount:3, unit:'clove'} },
+    { id:'flour', category:'PANTRY', name:'All-Purpose Flour', prepNote:'',
+      us:{amount:0.25, unit:'cup'}, metric:{amount:30, unit:'g'} },
+    { id:'butter', category:'DAIRY', name:'Unsalted Butter', prepNote:'',
+      us:{amount:0.5, unit:'cup'}, metric:{amount:113, unit:'g'} },
+    { id:'driedOnion', category:'PANTRY', name:'Dried Minced Onion', prepNote:'',
+      us:{amount:1, unit:'tbsp'}, metric:{amount:15, unit:'ml'} },
+    { id:'broth', category:'PANTRY', name:'Chicken Broth', prepNote:'',
+      us:{amount:0.5, unit:'cup'}, metric:{amount:120, unit:'ml'} },
+    { id:'cream', category:'DAIRY', name:'Heavy Cream', prepNote:'',
+      us:{amount:2, unit:'cup'}, metric:{amount:480, unit:'ml'} },
+    { id:'sourCream', category:'DAIRY', name:'Sour Cream', prepNote:'',
+      us:{amount:0.25, unit:'cup'}, metric:{amount:60, unit:'ml'} },
+    { id:'creamCheese', category:'DAIRY', name:'Cream Cheese', prepNote:'',
+      us:{amount:2, unit:'tbsp'}, metric:{amount:30, unit:'g'} },
+    { id:'pecorino', category:'CHEESE', name:'Pecorino Romano', prepNote:'Finely grated',
+      us:{amount:0.5, unit:'cup'}, metric:{amount:50, unit:'g'} },
+    { id:'cheddar', category:'CHEESE', name:'Sharp White Cheddar', prepNote:'Shredded',
+      us:{amount:0.5, unit:'cup'}, metric:{amount:55, unit:'g'} },
+    { id:'mozzarella', category:'CHEESE', name:'Mozzarella', prepNote:'Shredded',
+      us:{amount:0.25, unit:'cup'}, metric:{amount:28, unit:'g'} },
+    { id:'salt', category:'SEASONINGS', name:'Kosher Salt', prepNote:'',
+      us:{amount:0.5, unit:'tsp'}, metric:{amount:2.5, unit:'ml'} },
+    { id:'pepper', category:'SEASONINGS', name:'Black Pepper', prepNote:'Freshly cracked',
+      us:{amount:0.25, unit:'tsp'}, metric:{amount:1.25, unit:'ml'} },
+    { id:'cayenne', category:'SEASONINGS', name:'Cayenne', prepNote:'',
+      us:{amount:0.5, unit:'tsp'}, metric:{amount:2.5, unit:'ml'} },
+    { id:'lemon', category:'SEASONINGS', name:'Lemon Juice', prepNote:'', scalable:false,
+      us:{amount:null, unit:'squeeze'}, metric:{amount:null, unit:'squeeze'} },
+    { id:'cheddarTopping', category:'CHEESE', name:'Additional Cheddar', prepNote:'For topping', scalable:false,
+      us:{amount:null, unit:'as-needed'}, metric:{amount:null, unit:'as-needed'} },
+  ],
+
+  equipment: [
+    'Large Dutch oven or pot','Baking dish','Whisk','Wooden spoon or spatula','Cutting board','Knife',
+    'Measuring cups','Measuring spoons','Cheese grater','Colander or strainer','Oven mitts'
+  ],
+
+  prepGroups: [
+    { id:'preheat', title:'Preheat', tasks:[
+      { id:'t-preheat', label:`Preheat oven to ${350}°F`, kind:'static' } ] },
+    { id:'spinach', title:'Spinach', highlight:true, tasks:[
+      { id:'t-spinach', ingredientId:'spinach', steps:['Thaw completely','Squeeze extremely dry — this matters, moisture will thin the dip','Chop'] } ] },
+    { id:'artichokes', title:'Artichokes', tasks:[
+      { id:'t-artichokes', ingredientId:'artichokes', steps:['Drain thoroughly','Chop'] } ] },
+    { id:'onion', title:'Onion', tasks:[
+      { id:'t-onion', ingredientId:'onion', steps:['Finely chop'] } ] },
+    { id:'garlic', title:'Garlic', tasks:[
+      { id:'t-garlic', ingredientId:'garlic', steps:['Chop or grate'] } ] },
+    { id:'cheeses', title:'Cheeses', tasks:[
+      { id:'t-pecorino', ingredientId:'pecorino', steps:[] },
+      { id:'t-cheddar', ingredientId:'cheddar', steps:[] },
+      { id:'t-mozzarella', ingredientId:'mozzarella', steps:[] },
+      { id:'t-cheddarTopping', ingredientId:'cheddarTopping', steps:['Have this ready on the side for topping'] },
+    ] },
+    { id:'measure', title:'Measure the Rest', tasks:[
+      { id:'t-butter', ingredientId:'butter', steps:[] },
+      { id:'t-driedOnion', ingredientId:'driedOnion', steps:[] },
+      { id:'t-flour', ingredientId:'flour', steps:[] },
+      { id:'t-broth', ingredientId:'broth', steps:[] },
+      { id:'t-cream', ingredientId:'cream', steps:[] },
+      { id:'t-sourCream', ingredientId:'sourCream', steps:[] },
+      { id:'t-creamCheese', ingredientId:'creamCheese', steps:[] },
+      { id:'t-salt', ingredientId:'salt', steps:[] },
+      { id:'t-pepper', ingredientId:'pepper', steps:[] },
+      { id:'t-cayenne', ingredientId:'cayenne', steps:[] },
+      { id:'t-lemon', ingredientId:'lemon', steps:[] },
+    ] },
+  ],
+
+  steps: [
+    { id:'preheat', phase:'PREP', title:'Preheat & Confirm Prep', heat:'off',
+      instruction:"Preheat the oven to 350°F. Confirm your mise en place is done — spinach squeezed dry, artichokes drained, aromatics chopped, and everything measured.",
+      addNow:[], lookFor:'', watchOut:'', help:[] },
+
+    { id:'saute', phase:'SAUCE', title:'Sauté the Aromatics', heat:'medium',
+      instruction:'Cook the butter, fresh onion, dried onion, and garlic in a large Dutch oven or pot over medium heat, stirring occasionally, until golden brown.',
+      addNow:['butter','onion','driedOnion','garlic'],
+      lookFor:'The onion should soften and the aromatics should turn lightly golden and smell fragrant.',
+      watchOut:"Don't let the garlic burn — pull the heat back if it's coloring too fast.",
+      help:['flour-clumpy'] },
+
+    { id:'flour', phase:'SAUCE', title:'Add the Flour', heat:'medium',
+      instruction:'Add the flour directly to the pot and stir to combine with the butter and aromatics.',
+      addNow:['flour'],
+      lookFor:'The flour should be fully worked in with no dry, powdery patches left.',
+      watchOut:'Keep stirring — flour can catch and toast unevenly on the bottom of the pot.',
+      help:['flour-clumpy'] },
+
+    { id:'broth-cream', phase:'SAUCE', title:'Add Broth, Then Cream', heat:'medium',
+      instruction:'Add the chicken broth and stir to loosen the mixture. While whisking continuously, pour in the heavy cream.',
+      addNow:['broth','cream'],
+      lookFor:'A smooth, lump-free base with no dry flour visible.',
+      watchOut:'Whisk while the cream goes in, or it can add too fast and separate.',
+      help:['sauce-lumpy','sauce-thin','cream-too-fast'] },
+
+    { id:'boil', phase:'SAUCE', title:'Bring to a Boil', heat:'medium',
+      instruction:'Keep the mixture over medium heat, whisking occasionally, until it comes to a full boil.',
+      addNow:[],
+      lookFor:'Steady, rolling bubbles across the surface — not just simmering at the edges.',
+      watchOut:'Whisk the bottom regularly so it doesn\u2019t scorch as it thickens.',
+      help:['sauce-thick','sauce-thin'] },
+
+    { id:'season', phase:'SAUCE', title:'Reduce Heat & Season', heat:'medium-low',
+      instruction:'Reduce the heat to medium-low. Add the cayenne, salt, pepper, and a squeeze of lemon juice. Stir to combine.',
+      addNow:['cayenne','salt','pepper','lemon'],
+      lookFor:'An evenly seasoned, glossy sauce.',
+      watchOut:'',
+      help:['bland','too-spicy'] },
+
+    { id:'cheeses', phase:'SAUCE', title:'Add the Cheeses', heat:'medium-low',
+      instruction:'Add the Pecorino Romano, sharp white cheddar, and mozzarella. Stir to combine, then remove from heat and let the mixture sit for a few minutes.',
+      addNow:['pecorino','cheddar','mozzarella'],
+      lookFor:'A smooth, fully melted, cohesive cheese sauce.',
+      watchOut:'Stir gently and keep the heat low here — high heat can make cheese sauce turn grainy or split.',
+      help:['cheese-not-melting','sauce-separated'] },
+
+    { id:'rest', phase:'SAUCE', title:'Remove From Heat & Rest', heat:'off',
+      instruction:'Take the pot off the heat entirely and let the sauce sit for a few minutes before continuing.',
+      addNow:[],
+      lookFor:'The sauce should settle into a thick, glossy consistency as it sits.',
+      watchOut:'',
+      help:['sauce-thick'] },
+
+    { id:'dairy', phase:'FINISH', title:'Stir in Sour Cream & Cream Cheese', heat:'off',
+      instruction:'With the pot off the heat, stir the sour cream and cream cheese into the sauce until fully incorporated.',
+      addNow:['sourCream','creamCheese'],
+      lookFor:'A rich, uniformly creamy mixture with no streaks.',
+      watchOut:'',
+      help:['sauce-thick','cheese-not-melting'] },
+
+    { id:'fold', phase:'FINISH', title:'Fold in Spinach & Artichokes', heat:'off',
+      instruction:'Gently mix the chopped spinach and artichoke hearts into the sauce until evenly distributed.',
+      addNow:['spinach','artichokes'],
+      lookFor:'A thick, evenly speckled green-and-cream mixture — nothing pooling or watery at the bottom.',
+      watchOut:"If the spinach wasn't squeezed dry enough, extra water can thin the dip out here.",
+      help:['spinach-wet','sauce-thin'] },
+
+    { id:'transfer', phase:'BAKE', title:'Transfer & Top', heat:'off',
+      instruction:'Transfer the mixture to a baking dish and spread it into an even layer. Sprinkle additional cheddar on top.',
+      addNow:['cheddarTopping'],
+      lookFor:'An even layer, level enough to bake through consistently.',
+      watchOut:'',
+      help:[] },
+
+    { id:'bake', phase:'BAKE', title:'Bake', heat:'bake',
+      instruction:'Bake at 350°F for 15–20 minutes.',
+      addNow:[],
+      lookFor:'Bubbling around the edges and warmed all the way through the center.',
+      watchOut:"Ovens vary — start checking at 15 minutes rather than assuming 20.",
+      help:['not-browning'],
+      timer:{ type:'bake', checkSeconds:900 } },
+
+    { id:'broil', phase:'BAKE', title:'Optional Broil', heat:'off',
+      instruction:'For extra color on top, broil for 2–3 minutes if desired. This step is optional.',
+      addNow:[],
+      lookFor:'Light golden-brown spots forming across the top layer of cheese.',
+      watchOut:'WATCH CLOSELY — broilers can brown food quickly and go from golden to burnt in seconds.',
+      help:['not-browning','worried-broiler'],
+      timer:{ type:'broil', targetSeconds:150 } },
+
+    { id:'serve', phase:'SERVE', title:'Serve', heat:'off',
+      instruction:"The dip is ready. Let it sit a couple of minutes, then serve warm straight from the baking dish.",
+      addNow:[], lookFor:'', watchOut:'', help:['dip-thick-sitting'] },
+  ],
+};
+
+const STEP_INDEX = {}; RECIPE.steps.forEach((s,i)=>STEP_INDEX[s.id]=i);
+const ING_INDEX = {}; RECIPE.ingredients.forEach(i=>ING_INDEX[i.id]=i);
+
+/* =========================================================================
+   TROUBLESHOOTING LIBRARY
+   ========================================================================= */
+const ISSUES = [
+  { id:'sauce-thick', q:"My sauce is too thick", a:"Whisk in a splash of warm broth or cream, a tablespoon at a time, off the heat, until it loosens back up." },
+  { id:'sauce-thin', q:"My sauce is too thin / watery", a:"Simmer it a bit longer over medium-low, stirring often, to reduce and thicken. Make sure spinach was squeezed properly before it goes in." },
+  { id:'cheese-not-melting', q:"The cheese isn't melting smoothly", a:"Drop the heat to low, add cheese in smaller handfuls, and stir constantly. High heat is usually the culprit." },
+  { id:'sauce-separated', q:"The sauce separated", a:"Take it off the heat, let it cool slightly, then whisk vigorously — sometimes off-heat whisking pulls it back together. Adding a splash of cold cream while whisking can also help re-emulsify it." },
+  { id:'flour-clumpy', q:"The flour is clumpy", a:"Keep whisking briskly as the liquid goes in — clumps usually smooth out with a minute or two of steady whisking over heat." },
+  { id:'cream-too-fast', q:"I added the cream too quickly", a:"Slow down and whisk hard for a minute. If it looks broken, pull it off heat and keep whisking — it often comes back together." },
+  { id:'spinach-wet', q:"My spinach still seems wet", a:"Press it again in a clean towel before folding it in, or simmer the finished dip a few extra minutes to cook off the extra moisture." },
+  { id:'bland', q:"It tastes bland", a:"Add a touch more salt and a fresh squeeze of lemon — both wake up the other flavors more than people expect." },
+  { id:'too-spicy', q:"It's too spicy", a:"Stir in a little extra cream or sour cream to mellow the heat." },
+  { id:'dip-thick-sitting', q:"The dip got thick while sitting", a:"Warm it gently and stir in a splash of cream or broth to loosen it back to serving consistency." },
+  { id:'not-browning', q:"The top isn't browning", a:"Move it to the broiler for 1–2 minutes, watching constantly — it browns fast once it starts." },
+  { id:'worried-broiler', q:"I'm worried about burning it under the broiler", a:"Keep the oven door cracked and stand right there — 2–3 minutes is all it needs, and it can turn in seconds after that." },
+];
+const ISSUE_MAP = {}; ISSUES.forEach(i=>ISSUE_MAP[i.id]=i);
+
+/* Extra conversational FAQ for Ask the Chef, beyond the troubleshooting list */
+const FAQ = [
+  { kw:['fresh spinach','use fresh'], a:"Yes — use about 1.5–1.75 lb fresh spinach in place of the 20 oz frozen. Wilt it down, cool it, then squeeze it hard before chopping. Check the substitution guide on the Recipe tab for the full walkthrough." },
+  { kw:['forgot sour cream','no sour cream','only have milk','no cream cheese'], a:"If you're missing sour cream or cream cheese, the dip will still work — it'll just be a little less tangy and slightly thinner. Whole milk can't fully replace heavy cream though; the sauce needs that fat to thicken properly." },
+  { kw:['stop here','pause','20 minutes','come back later'], a:"You can pause after any stovetop step — just keep the pot covered off the heat. If it's been more than 30–40 minutes, gently rewarm before folding in the spinach and artichokes or before baking." },
+  { kw:['store','leftovers'], a:"Cool it, then refrigerate airtight for 3–4 days." },
+  { kw:['reheat','reheating','tomorrow'], a:"Reheat covered at 325°F until warmed through, or microwave in short bursts, stirring between each. A splash of cream helps loosen it back up." },
+  { kw:['how much cream','how much broth'], a:"Broth is 1/2 cup, heavy cream is 2 cups at 1× — check the Add Now card on the Broth & Cream step, it always matches your current scale." },
+  { kw:['added the cheese too early','cheese too early'], a:"Not a big problem — just pull the heat down to low so it doesn't split, and stir gently until smooth before moving on." },
+  { kw:['how thick','right now'], a:null }, // handled dynamically
+];
+
+/* =========================================================================
+   STATE + PERSISTENCE
+   ========================================================================= */
+const DEFAULT_STATE = {
+  scale: 1, units: 'us',
+  ingredientsChecked: {}, prepChecked: {},
+  currentStepIndex: 0, completedSteps: {},
+  sessionStarted: false, sessionFinished: false,
+  notes: '',
+  bakeTimer: { running:false, endAt:null, remaining:900, checkPromptShown:false },
+  broilTimer: { running:false, endAt:null, remaining:150 },
+};
+let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+const STORAGE_KEY = 'houstons-dip-session';
+
+async function loadState(){
+  try{
+    const res = await window.storage.get(STORAGE_KEY, false);
+    if(res && res.value){
+      const saved = JSON.parse(res.value);
+      state = Object.assign(JSON.parse(JSON.stringify(DEFAULT_STATE)), saved);
+    }
+  }catch(e){ /* no saved state yet — fine */ }
+}
+let saveTimeout=null;
+function persist(){
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(async ()=>{
+    try{ await window.storage.set(STORAGE_KEY, JSON.stringify(state), false); }catch(e){}
+  }, 250);
+}
+
+/* =========================================================================
+   FORMATTING HELPERS
+   ========================================================================= */
+function fracEighths(x){
+  const map = {1:'⅛',2:'¼',3:'⅜',4:'½',5:'⅝',6:'¾',7:'⅞'};
+  let whole = Math.floor(x + 1e-6);
+  let eighths = Math.round((x - whole) * 8);
+  if(eighths === 8){ whole += 1; eighths = 0; }
+  const fracStr = eighths ? map[eighths] : '';
+  if(whole === 0 && fracStr) return fracStr;
+  if(whole === 0) return '0';
+  if(!fracStr) return String(whole);
+  return whole + '\u2009' + fracStr;
+}
+function roundMetric(v){
+  if(v < 20) return Math.round(v*10)/10;
+  return Math.round(v/5)*5;
+}
+const UNIT_LABEL = { cup:'cup', tbsp:'tbsp', tsp:'tsp', oz:'oz', g:'g', ml:'ml', clove:'clove', small:'small', squeeze:'', 'as-needed':'' };
+
+function formatQty(ing, scale, units){
+  if(ing.scalable === false){
+    if(ing.us.unit === 'squeeze') return { qty:'Squeeze', unit:'', note: scale>=2 ? 'adjust to taste for a larger batch' : '' };
+    if(ing.us.unit === 'as-needed') return { qty:'As needed', unit:'', note:'for topping' };
+  }
+  const base = units === 'metric' ? ing.metric : ing.us;
+  const val = base.amount * scale;
+  let qtyStr;
+  if(units === 'metric' && (base.unit === 'g' || base.unit === 'ml')){
+    qtyStr = roundMetric(val) + ' ' + base.unit;
+  } else if(base.unit === 'clove'){
+    qtyStr = fracEighths(val) + ' ' + (val===1?'clove':'cloves');
+  } else if(base.unit === 'small'){
+    qtyStr = fracEighths(val) + ' small';
+  } else {
+    qtyStr = fracEighths(val) + ' ' + base.unit + (val > 1 && (base.unit==='cup') ? 's': '');
+  }
+  return { qty:qtyStr, unit:'', note:'' };
+}
+
+const CATEGORY_ORDER = ['PRODUCE','DAIRY','CHEESE','PANTRY','SEASONINGS'];
+const CATEGORY_LABEL = { PRODUCE:'Produce', DAIRY:'Dairy', CHEESE:'Dairy + Cheese', PANTRY:'Pantry', SEASONINGS:'Seasonings' };
+
+/* =========================================================================
+   RENDERING
+   ========================================================================= */
+function el(tag, attrs={}, children=[]){
+  const e = document.createElement(tag);
+  for(const k in attrs){
+    if(k === 'class') e.className = attrs[k];
+    else if(k === 'html') e.innerHTML = attrs[k];
+    else if(k.startsWith('on')) e.addEventListener(k.slice(2), attrs[k]);
+    else e.setAttribute(k, attrs[k]);
+  }
+  (Array.isArray(children)?children:[children]).forEach(c=>{
+    if(c==null) return;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return e;
+}
+
+function renderIngredients(){
+  const root = document.getElementById('ingredientGroups');
+  root.innerHTML = '';
+  const merged = {}; CATEGORY_ORDER.forEach(c=>merged[c]=[]);
+  RECIPE.ingredients.forEach(ing=>{
+    const cat = ing.category === 'CHEESE' ? 'CHEESE' : ing.category;
+    (merged[cat] || (merged[cat]=[])).push(ing);
+  });
+  const grouped = { PRODUCE:merged.PRODUCE, 'DAIRY + CHEESE': [...(merged.DAIRY||[]), ...(merged.CHEESE||[])], PANTRY:merged.PANTRY, SEASONINGS:merged.SEASONINGS };
+  Object.keys(grouped).forEach(label=>{
+    const items = grouped[label]; if(!items || !items.length) return;
+    const group = el('div', {class:'ing-group'});
+    group.appendChild(el('div', {class:'ing-group-title'}, label));
+    const list = el('div', {class:'ing-list'});
+    items.forEach(ing=>{
+      const checked = !!state.ingredientsChecked[ing.id];
+      const fq = formatQty(ing, state.scale, state.units);
+      const row = el('div', {class:'ing-row'+(checked?' checked':''), onclick:()=>{
+        state.ingredientsChecked[ing.id] = !state.ingredientsChecked[ing.id]; persist(); renderIngredients();
+      }});
+      row.appendChild(el('div', {class:'ing-check'}, el('span',{html:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg>'})));
+      row.appendChild(el('div', {class:'ing-qty'}, fq.qty));
+      const main = el('div', {});
+      main.appendChild(el('div', {class:'ing-name'}, ing.name + (fq.note? ' — '+fq.note : '')));
+      if(ing.prepNote) main.appendChild(el('div', {class:'ing-note'}, ing.prepNote));
+      row.appendChild(main);
+      list.appendChild(row);
+    });
+    group.appendChild(list);
+    root.appendChild(group);
+  });
+}
+
+function renderEquipment(){
+  const root = document.getElementById('equipList'); root.innerHTML = '';
+  RECIPE.equipment.forEach(e=> root.appendChild(el('div', {class:'equip-chip'}, e)));
+}
+
+function renderPrep(){
+  const root = document.getElementById('prepGroups'); root.innerHTML = '';
+  let total=0, done=0;
+  RECIPE.prepGroups.forEach(group=>{
+    const gEl = el('div', {class:'prep-group'+(group.highlight?' highlight':'')});
+    const head = el('div', {class:'prep-group-head'});
+    head.appendChild(el('h3', {}, group.title));
+    if(group.highlight) head.appendChild(el('span', {class:'prep-flag'}, 'Key step'));
+    gEl.appendChild(head);
+    group.tasks.forEach(task=>{
+      total++;
+      const isDone = !!state.prepChecked[task.id];
+      if(isDone) done++;
+      const row = el('div', {class:'prep-task'+(isDone?' done':''), onclick:()=>{
+        state.prepChecked[task.id] = !state.prepChecked[task.id]; persist(); renderPrep();
+      }});
+      row.appendChild(el('div', {class:'ing-check'}, el('span',{html:'<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg>'})));
+      const main = el('div', {class:'prep-task-main'});
+      if(task.kind === 'static'){
+        main.appendChild(el('div', {class:'prep-task-title'}, el('span',{class:'prep-task-name'}, task.label)));
+      } else {
+        const ing = ING_INDEX[task.ingredientId];
+        const fq = formatQty(ing, state.scale, state.units);
+        const titleRow = el('div', {class:'prep-task-title'});
+        titleRow.appendChild(el('span', {class:'prep-task-qty'}, fq.qty));
+        titleRow.appendChild(el('span', {class:'prep-task-name'}, ing.name + (fq.note? ' ('+fq.note+')':'')));
+        main.appendChild(titleRow);
+        const steps = task.steps && task.steps.length ? task.steps : (ing.prepNote ? [ing.prepNote] : []);
+        if(steps.length){
+          const ul = el('ul', {});
+          steps.forEach(s=> ul.appendChild(el('li', {}, s)));
+          main.appendChild(ul);
+        }
+      }
+      row.appendChild(main);
+      gEl.appendChild(row);
+    });
+    root.appendChild(gEl);
+  });
+  document.getElementById('prepStatusText').textContent = `${done} of ${total} ready`;
+  document.getElementById('readyToCookBtn').disabled = false;
+}
+
+function heatClass(h){
+  return { medium:'heat-medium','medium-low':'heat-medium-low', off:'heat-off', bake:'heat-bake' }[h] || 'heat-off';
+}
+function heatLabel(h){
+  return { medium:'Medium Heat','medium-low':'Medium-Low', off:'Remove From Heat', bake:'350°F Oven' }[h] || '';
+}
+
+function fmtClock(sec){
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec/60), s = sec%60;
+  return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+}
+
+function tickTimers(){
+  let changed=false;
+  if(state.bakeTimer.running && state.bakeTimer.endAt){
+    const remaining = (state.bakeTimer.endAt - Date.now())/1000;
+    if(remaining <= 0){
+      state.bakeTimer.running = false; state.bakeTimer.remaining = 0; state.bakeTimer.checkPromptShown = true;
+      changed = true;
+    } else {
+      state.bakeTimer.remaining = remaining;
+    }
+  }
+  if(state.broilTimer.running && state.broilTimer.endAt){
+    const remaining = (state.broilTimer.endAt - Date.now())/1000;
+    if(remaining <= 0){
+      state.broilTimer.running = false; state.broilTimer.remaining = 0; changed = true;
+    } else {
+      state.broilTimer.remaining = remaining;
+    }
+  }
+  if(document.getElementById('view-cook').classList.contains('active')) renderCook();
+  if(changed) persist();
+}
+setInterval(tickTimers, 1000);
+
+function startBakeTimer(){
+  state.bakeTimer.running = true;
+  state.bakeTimer.endAt = Date.now() + state.bakeTimer.remaining*1000;
+  state.bakeTimer.checkPromptShown = false;
+  persist(); renderCook();
+}
+function extendBakeTimer(sec){
+  state.bakeTimer.remaining = sec;
+  state.bakeTimer.checkPromptShown = false;
+  state.bakeTimer.running = true;
+  state.bakeTimer.endAt = Date.now() + sec*1000;
+  persist(); renderCook();
+}
+function resetBakeTimer(){
+  state.bakeTimer = { running:false, endAt:null, remaining:900, checkPromptShown:false };
+  persist(); renderCook();
+}
+function startBroilTimer(){
+  state.broilTimer.running = true;
+  state.broilTimer.endAt = Date.now() + state.broilTimer.remaining*1000;
+  persist(); renderCook();
+}
+function pauseBroilTimer(){
+  if(state.broilTimer.running && state.broilTimer.endAt){
+    state.broilTimer.remaining = Math.max(0,(state.broilTimer.endAt - Date.now())/1000);
+  }
+  state.broilTimer.running = false;
+  persist(); renderCook();
+}
+function resetBroilTimer(){
+  state.broilTimer = { running:false, endAt:null, remaining:150 };
+  persist(); renderCook();
+}
+
+function renderCook(){
+  const root = document.getElementById('cookShell');
+  root.innerHTML = '';
+  if(!state.sessionStarted){
+    root.appendChild(el('div', {class:'card', style:'text-align:center;padding:44px 24px;'}, [
+      el('h2', {style:'margin-top:0;'}, "Ready when you are"),
+      el('p', {style:'color:var(--charcoal-soft);max-width:420px;margin:0 auto 20px;'}, "Start cooking to walk through this recipe one clear checkpoint at a time — quantities, heat, timers and all."),
+      el('button', {class:'btn btn-primary', onclick:beginCooking}, 'Start Cooking →')
+    ]));
+    document.getElementById('helpFab').style.display='none';
+    return;
+  }
+  if(state.sessionFinished){
+    goto('finish'); return;
+  }
+  document.getElementById('helpFab').style.display='flex';
+
+  const step = RECIPE.steps[state.currentStepIndex];
+  const total = RECIPE.steps.length;
+
+  const topline = el('div', {class:'cook-topline'});
+  topline.appendChild(el('div', {style:'display:flex;align-items:center;gap:10px;'}, [
+    el('span', {class:'phase-chip'}, step.phase),
+    el('span', {class:'step-count'}, `Step ${state.currentStepIndex+1} of ${total}`)
+  ]));
+  const dots = el('div', {class:'dots'});
+  RECIPE.steps.forEach((s,i)=>{
+    const cls = i===state.currentStepIndex ? 'current' : (state.completedSteps[s.id] ? 'done':'');
+    dots.appendChild(el('span', {class:cls}));
+  });
+  topline.appendChild(dots);
+  root.appendChild(topline);
+
+  const card = el('div', {class:'cook-card'});
+  const main = el('div', {class:'cook-main'});
+  main.appendChild(el('div', {class:'heat-badge '+heatClass(step.heat)}, heatLabel(step.heat)));
+  main.appendChild(el('h2', {}, step.title));
+  main.appendChild(el('div', {class:'instruction'}, step.instruction));
+  if(step.lookFor) main.appendChild(el('div', {class:'callout look'}, [el('span',{class:'lbl'},'Look For'), step.lookFor]));
+  if(step.watchOut) main.appendChild(el('div', {class:'callout warn'}, [el('span',{class:'lbl'},'Watch Out'), step.watchOut]));
+  card.appendChild(main);
+
+  const side = el('div', {class:'cook-side'});
+  if(step.addNow && step.addNow.length){
+    const box = el('div', {class:'addnow'});
+    box.appendChild(el('div', {class:'addnow-title'}, 'Add Now'));
+    step.addNow.forEach(ingId=>{
+      const ing = ING_INDEX[ingId];
+      const fq = formatQty(ing, state.scale, state.units);
+      const row = el('div', {class:'addnow-item'});
+      row.appendChild(el('div', {class:'addnow-qty'}, fq.qty));
+      const nameWrap = el('div', {});
+      nameWrap.appendChild(el('div', {class:'addnow-name'}, ing.name));
+      if(fq.note) nameWrap.appendChild(el('div', {class:'addnow-note'}, fq.note));
+      row.appendChild(nameWrap);
+      box.appendChild(row);
+    });
+    side.appendChild(box);
+  }
+
+  if(step.timer && step.timer.type === 'bake'){
+    const bt = state.bakeTimer;
+    const box = el('div', {class:'timer-box'});
+    box.appendChild(el('div', {class:'tlabel'}, 'Bake Timer · 15–20 min'));
+    box.appendChild(el('div', {class:'tclock'}, fmtClock(bt.remaining)));
+    const btns = el('div', {class:'timer-btns'});
+    if(!bt.running && bt.remaining === 900){
+      btns.appendChild(el('button', {class:'primary', onclick:startBakeTimer}, 'Start 15 min'));
+    } else if(bt.running){
+      btns.appendChild(el('button', {onclick:()=>{ state.bakeTimer.remaining = (state.bakeTimer.endAt-Date.now())/1000; state.bakeTimer.running=false; persist(); renderCook(); }}, 'Pause'));
+      btns.appendChild(el('button', {onclick:resetBakeTimer}, 'Reset'));
+    } else if(bt.checkPromptShown || bt.remaining<=0){
+      btns.appendChild(el('button', {onclick:()=>extendBakeTimer(60)}, '+1 min'));
+      btns.appendChild(el('button', {onclick:()=>extendBakeTimer(180)}, '+3 min'));
+      btns.appendChild(el('button', {onclick:()=>extendBakeTimer(300)}, '+5 min'));
+    } else {
+      btns.appendChild(el('button', {class:'primary', onclick:()=>{ state.bakeTimer.running=true; state.bakeTimer.endAt=Date.now()+state.bakeTimer.remaining*1000; persist(); renderCook(); }}, 'Resume'));
+      btns.appendChild(el('button', {onclick:resetBakeTimer}, 'Reset'));
+    }
+    box.appendChild(btns);
+    if(bt.checkPromptShown) box.appendChild(el('div', {class:'check-prompt'}, "⏰ Check the dip — extend the timer if it needs longer."));
+    side.appendChild(box);
+  }
+
+  if(step.timer && step.timer.type === 'broil'){
+    const bt = state.broilTimer;
+    const box = el('div', {class:'timer-box'});
+    box.appendChild(el('div', {class:'tlabel'}, 'Broil Timer · 2–3 min'));
+    box.appendChild(el('div', {class:'tclock'}, fmtClock(bt.remaining)));
+    const btns = el('div', {class:'timer-btns'});
+    if(!bt.running && bt.remaining>0 && bt.remaining<150) btns.appendChild(el('button', {class:'primary', onclick:startBroilTimer}, 'Resume'));
+    else if(!bt.running) btns.appendChild(el('button', {class:'primary', onclick:startBroilTimer}, 'Start'));
+    else btns.appendChild(el('button', {onclick:pauseBroilTimer}, 'Pause'));
+    btns.appendChild(el('button', {onclick:resetBroilTimer}, 'Reset'));
+    box.appendChild(btns);
+    box.appendChild(el('div', {class:'timer-warn'}, '⚠ WATCH CLOSELY — broilers brown food fast.'));
+    side.appendChild(box);
+  }
+
+  if(!step.addNow.length && !(step.timer)){
+    side.appendChild(el('div', {class:'addnow', style:'display:flex;align-items:center;justify-content:center;color:var(--charcoal-soft);font-size:13px;text-align:center;'}, step.phase==='SERVE' ? 'Nothing more to add — just serve.' : 'No new ingredients for this step.'));
+  }
+
+  card.appendChild(side);
+  root.appendChild(card);
+
+  const nav = el('div', {class:'cook-nav'});
+  nav.appendChild(el('button', {class:'btn btn-ghost', disabled: state.currentStepIndex===0 ? 'true': null, onclick:()=>gotoStep(state.currentStepIndex-1)}, '← Back'));
+  const isLast = state.currentStepIndex === total-1;
+  nav.appendChild(el('button', {class:'btn btn-primary', onclick:()=>{
+    state.completedSteps[step.id] = true;
+    if(isLast){ state.sessionFinished = true; persist(); goto('finish'); return; }
+    gotoStep(state.currentStepIndex+1);
+  }}, isLast ? 'Finish →' : 'Next →'));
+  root.appendChild(nav);
+}
+
+function gotoStep(i){
+  if(i<0 || i>=RECIPE.steps.length) return;
+  state.currentStepIndex = i; persist(); renderCook();
+}
+function beginCooking(){
+  state.sessionStarted = true; persist(); renderCook();
+}
+
+/* =========================================================================
+   HELP MODAL
+   ========================================================================= */
+function openHelp(){
+  const content = document.getElementById('helpContent'); content.innerHTML = '';
+  const step = state.sessionStarted && !state.sessionFinished ? RECIPE.steps[state.currentStepIndex] : null;
+  const contextualIds = step ? step.help : [];
+  if(contextualIds.length){
+    content.appendChild(el('div', {style:'font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--terracotta-deep);margin-bottom:8px;'}, 'For this step'));
+    contextualIds.forEach(id=>{
+      const it = ISSUE_MAP[id];
+      content.appendChild(el('div', {class:'issue contextual'}, [el('div',{class:'issue-q'},it.q), el('div',{class:'issue-a'},it.a)]));
+    });
+    content.appendChild(el('div', {style:'font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--charcoal-soft);margin:16px 0 8px;'}, 'All issues'));
+  }
+  ISSUES.forEach(it=>{
+    if(contextualIds.includes(it.id)) return;
+    content.appendChild(el('div', {class:'issue'}, [el('div',{class:'issue-q'},it.q), el('div',{class:'issue-a'},it.a)]));
+  });
+  document.getElementById('helpOverlay').classList.add('open');
+}
+document.getElementById('helpFab').addEventListener('click', openHelp);
+document.getElementById('helpClose').addEventListener('click', ()=>document.getElementById('helpOverlay').classList.remove('open'));
+document.getElementById('helpOverlay').addEventListener('click', (e)=>{ if(e.target.id==='helpOverlay') e.currentTarget.classList.remove('open'); });
+
+/* =========================================================================
+   ASK THE CHEF
+   ========================================================================= */
+function currentStepCtx(){
+  if(!state.sessionStarted || state.sessionFinished) return null;
+  return RECIPE.steps[state.currentStepIndex];
+}
+function renderAskContext(){
+  const ctxEl = document.getElementById('askContext');
+  const step = currentStepCtx();
+  if(step){
+    ctxEl.textContent = `On step ${state.currentStepIndex+1} of ${RECIPE.steps.length} — ${step.title} · ${state.scale}× scale · ${state.units.toUpperCase()}`;
+  } else if(state.sessionFinished){
+    ctxEl.textContent = `Finished cooking · ${state.scale}× scale — ask about storage, reheating, or leftovers.`;
+  } else {
+    ctxEl.textContent = `Not cooking yet · ${state.scale}× scale · ${state.units.toUpperCase()} — ask anything about the recipe.`;
+  }
+}
+function renderAskChips(){
+  const wrap = document.getElementById('askChips'); wrap.innerHTML='';
+  const step = currentStepCtx();
+  let chips = [];
+  if(step){
+    chips.push('What should this look like right now?');
+    if(step.watchOut) chips.push('Is my heat too high?');
+    chips.push('What happens next?');
+    if(step.help[0]) chips.push(ISSUE_MAP[step.help[0]].q);
+  } else {
+    chips = ['Can I use fresh spinach?','I forgot sour cream','How do I store leftovers?','How much cream do I add?'];
+  }
+  chips.forEach(c=> wrap.appendChild(el('button', {class:'chip', onclick:()=>{ document.getElementById('askInput').value=c; sendAsk(); }}, c)));
+}
+function addMsg(text, who){
+  const log = document.getElementById('askLog');
+  log.appendChild(el('div', {class:'msg '+who}, text));
+  log.scrollTop = log.scrollHeight;
+}
+function answerQuestion(qRaw){
+  const q = qRaw.toLowerCase();
+  const step = currentStepCtx();
+
+  if(/look like|right now|should it look/.test(q) && step){
+    return step.lookFor ? `Right now: ${step.lookFor}` : "This step doesn't have a strong visual cue — just follow the instruction and move to the next step when it's done.";
+  }
+  if(/too high|heat too|burn/.test(q) && step){
+    return step.watchOut ? `Heat check: you're at ${heatLabel(step.heat).toLowerCase()}. ${step.watchOut}` : `You're at ${heatLabel(step.heat).toLowerCase()} for this step — that's correct, no adjustment needed.`;
+  }
+  if(/what.?s next|happens next|next step/.test(q) && step){
+    const nxt = RECIPE.steps[state.currentStepIndex+1];
+    return nxt ? `Next up: ${nxt.title}${nxt.addNow.length ? ' — you\'ll add '+nxt.addNow.map(id=>ING_INDEX[id].name.toLowerCase()).join(', ') : ''}.` : "This is the last step — you're basically done.";
+  }
+  // direct issue match
+  for(const it of ISSUES){
+    const words = it.q.toLowerCase().replace(/[?]/g,'').split(' ').filter(w=>w.length>4);
+    const hitCount = words.filter(w=>q.includes(w)).length;
+    if(hitCount>=2 || q.includes(it.q.toLowerCase().replace('my ','').replace('it\'s ','').replace('i\'m ',''))){
+      return it.a;
+    }
+  }
+  for(const f of FAQ){
+    if(f.a && f.kw.some(k=>q.includes(k))) return f.a;
+  }
+  // loose keyword fallback across issues
+  for(const it of ISSUES){
+    if(it.q.toLowerCase().split(' ').some(w=>w.length>4 && q.includes(w))) return it.a;
+  }
+  return "I don't have a specific answer for that yet — try the Help button for the full troubleshooting list, or rephrase with what you're seeing (too thick, too thin, not melting, etc).";
+}
+function sendAsk(){
+  const input = document.getElementById('askInput');
+  const val = input.value.trim();
+  if(!val) return;
+  addMsg(val, 'user');
+  input.value='';
+  setTimeout(()=>{ addMsg(answerQuestion(val), 'bot'); }, 250);
+}
+document.getElementById('askSend').addEventListener('click', sendAsk);
+document.getElementById('askInput').addEventListener('keydown', e=>{ if(e.key==='Enter') sendAsk(); });
+
+/* =========================================================================
+   NAV / VIEWS
+   ========================================================================= */
+function goto(view){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-'+view).classList.add('active');
+  document.querySelectorAll('#mainTabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===view));
+  if(view==='cook') renderCook();
+  if(view==='ask'){ renderAskContext(); renderAskChips(); }
+  if(view==='home') renderHomeProgress();
+  window.scrollTo({top:0, behavior:'instant'});
+}
+document.querySelectorAll('#mainTabs button').forEach(b=> b.addEventListener('click', ()=>goto(b.dataset.view)));
+document.querySelectorAll('[data-goto]').forEach(b=> b.addEventListener('click', ()=>{
+  const target = b.dataset.goto;
+  if(target==='ingredients-section'){ goto('home'); setTimeout(()=>document.getElementById('ingredients-section').scrollIntoView({behavior:'smooth'}), 60); }
+  else goto(target);
+}));
+document.getElementById('startCookingBtn').addEventListener('click', ()=>{ goto('cook'); if(!state.sessionStarted) beginCooking(); });
+document.getElementById('resumeBtn').addEventListener('click', ()=>goto('cook'));
+document.getElementById('readyToCookBtn').addEventListener('click', ()=>{ goto('cook'); if(!state.sessionStarted) beginCooking(); });
+
+function renderHomeProgress(){
+  const banner = document.getElementById('progressBanner');
+  if(state.sessionStarted && !state.sessionFinished){
+    banner.style.display='flex';
+    const pct = Math.round((state.currentStepIndex)/(RECIPE.steps.length-1)*100);
+    document.getElementById('progressLabel').textContent = `On step ${state.currentStepIndex+1} of ${RECIPE.steps.length} — ${RECIPE.steps[state.currentStepIndex].title}`;
+    document.getElementById('progressFill').style.width = pct+'%';
+  } else {
+    banner.style.display='none';
+  }
+}
+
+/* Scale + unit segmented controls (synced across Home and Prep) */
+function syncSegs(){
+  document.querySelectorAll('.seg button[data-scale]').forEach(b=> b.classList.toggle('active', parseFloat(b.dataset.scale)===state.scale));
+  document.querySelectorAll('.seg button[data-unit]').forEach(b=> b.classList.toggle('active', b.dataset.unit===state.units));
+}
+document.querySelectorAll('.seg button[data-scale]').forEach(b=> b.addEventListener('click', ()=>{
+  state.scale = parseFloat(b.dataset.scale); persist(); syncSegs(); renderIngredients(); renderPrep(); renderCook();
+}));
+document.querySelectorAll('.seg button[data-unit]').forEach(b=> b.addEventListener('click', ()=>{
+  state.units = b.dataset.unit; persist(); syncSegs(); renderIngredients(); renderPrep(); renderCook();
+}));
+
+/* Notes */
+document.getElementById('saveNotesBtn').addEventListener('click', async ()=>{
+  const val = document.getElementById('notesArea').value;
+  state.notes = val; persist();
+  const msg = document.getElementById('notesSavedMsg');
+  msg.style.display='block'; setTimeout(()=>msg.style.display='none', 2000);
+});
+document.querySelectorAll('.notes-tag').forEach(b=> b.addEventListener('click', ()=>{
+  const ta = document.getElementById('notesArea');
+  ta.value = ta.value ? ta.value.trim()+'\n'+b.dataset.note : b.dataset.note;
+}));
+
+/* Reset session */
+document.getElementById('resetSessionBtn').addEventListener('click', ()=> document.getElementById('confirmOverlay').classList.add('open'));
+document.getElementById('confirmClose').addEventListener('click', ()=> document.getElementById('confirmOverlay').classList.remove('open'));
+document.getElementById('confirmCancel').addEventListener('click', ()=> document.getElementById('confirmOverlay').classList.remove('open'));
+document.getElementById('confirmYes').addEventListener('click', ()=>{
+  const keepNotes = state.notes;
+  state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+  state.notes = keepNotes;
+  persist();
+  document.getElementById('confirmOverlay').classList.remove('open');
+  document.getElementById('notesArea').value = keepNotes;
+  syncSegs(); renderIngredients(); renderPrep(); renderHomeProgress();
+  goto('home');
+});
+
+/* =========================================================================
+   INIT
+   ========================================================================= */
+async function init(){
+  await loadState();
+  syncSegs();
+  renderIngredients();
+  renderEquipment();
+  renderPrep();
+  renderHomeProgress();
+  document.getElementById('notesArea').value = state.notes || '';
+  goto('home');
+}
+init();
+</script>
+</body>
+</html>
