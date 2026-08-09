@@ -702,7 +702,7 @@ const FAQ = [
   { kw:['reheat','reheating','tomorrow'], a:"Reheat covered at 325°F until warmed through, or microwave in short bursts, stirring between each. A splash of cream helps loosen it back up." },
   { kw:['how much cream','how much broth'], a:"Broth is 1/2 cup, heavy cream is 2 cups at 1× — check the Add Now card on the Broth & Cream step, it always matches your current scale." },
   { kw:['added the cheese too early','cheese too early'], a:"Not a big problem — just pull the heat down to low so it doesn't split, and stir gently until smooth before moving on." },
-  { kw:['how thick','right now'], a:null }, // handled dynamically
+  { kw:['how thick'], a:"It should be thick enough to coat the back of a spoon and hold a line when you drag a finger through it. Thinner than that — see 'sauce is too thin' in Help." },
 ];
 
 /* =========================================================================
@@ -778,7 +778,6 @@ function formatQty(ing, scale, units){
 }
 
 const CATEGORY_ORDER = ['PRODUCE','DAIRY','CHEESE','PANTRY','SEASONINGS'];
-const CATEGORY_LABEL = { PRODUCE:'Produce', DAIRY:'Dairy', CHEESE:'Dairy + Cheese', PANTRY:'Pantry', SEASONINGS:'Seasonings' };
 
 /* =========================================================================
    RENDERING
@@ -786,10 +785,13 @@ const CATEGORY_LABEL = { PRODUCE:'Produce', DAIRY:'Dairy', CHEESE:'Dairy + Chees
 function el(tag, attrs={}, children=[]){
   const e = document.createElement(tag);
   for(const k in attrs){
-    if(k === 'class') e.className = attrs[k];
-    else if(k === 'html') e.innerHTML = attrs[k];
-    else if(k.startsWith('on')) e.addEventListener(k.slice(2), attrs[k]);
-    else e.setAttribute(k, attrs[k]);
+    const v = attrs[k];
+    if(v === null || v === undefined) continue; // skip unset attrs instead of stringifying "null"
+    if(k === 'class') e.className = v;
+    else if(k === 'html') e.innerHTML = v;
+    else if(k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else if(k === 'disabled') e.disabled = !!v; // boolean DOM property, not a string attribute
+    else e.setAttribute(k, v);
   }
   (Array.isArray(children)?children:[children]).forEach(c=>{
     if(c==null) return;
@@ -893,6 +895,11 @@ function fmtClock(sec){
 }
 
 function tickTimers(){
+  const changed = recomputeTimers();
+  if(document.getElementById('view-cook').classList.contains('active')) renderCook();
+  if(changed) persist();
+}
+function recomputeTimers(){
   let changed=false;
   if(state.bakeTimer.running && state.bakeTimer.endAt){
     const remaining = (state.bakeTimer.endAt - Date.now())/1000;
@@ -911,8 +918,7 @@ function tickTimers(){
       state.broilTimer.remaining = remaining;
     }
   }
-  if(document.getElementById('view-cook').classList.contains('active')) renderCook();
-  if(changed) persist();
+  return changed;
 }
 setInterval(tickTimers, 1000);
 
@@ -1057,7 +1063,7 @@ function renderCook(){
   root.appendChild(card);
 
   const nav = el('div', {class:'cook-nav'});
-  nav.appendChild(el('button', {class:'btn btn-ghost', disabled: state.currentStepIndex===0 ? 'true': null, onclick:()=>gotoStep(state.currentStepIndex-1)}, '← Back'));
+  nav.appendChild(el('button', {class:'btn btn-ghost', disabled: state.currentStepIndex===0, onclick:()=>gotoStep(state.currentStepIndex-1)}, '← Back'));
   const isLast = state.currentStepIndex === total-1;
   nav.appendChild(el('button', {class:'btn btn-primary', onclick:()=>{
     state.completedSteps[step.id] = true;
@@ -1257,6 +1263,7 @@ document.getElementById('confirmYes').addEventListener('click', ()=>{
    ========================================================================= */
 async function init(){
   await loadState();
+  recomputeTimers();
   syncSegs();
   renderIngredients();
   renderEquipment();
